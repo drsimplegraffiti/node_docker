@@ -70,3 +70,48 @@ MongoDB Connected: godan-shard-00-00.minj6.mongodb.net
 
 > docker volume rm [volume name]
 > docker volume rm shared-stuff
+
+## Mount volume
+
+docker run \ --mount source=shared-stuff,target=/stuff
+
+## docker compose file
+
+> Create a docker-compose.yml file
+
+In it:
+
+```javascript
+version: '3'
+services:
+    web:
+        build: .
+        ports:
+            - "8080:8080"
+    db:
+        image: "mysql"
+        environment:
+            MYSQL_ROOT_PASSWORD: password
+        volumes:
+            - db-data:/foo
+
+    volumes:
+        db-data:
+
+```
+
+## Docker compose up to start all containers in docker compose
+
+> docker-compose up
+
+## Docker compose down to stop all containers in docker compose
+
+> docker-compose down
+
+## Base Image Addition
+
+> FROM node:14-alpine AS development
+
+## share volumes between containers
+
+> docker run --name [new container name] --volumes-from [container to copy from] -d -p [host port]:[container port] nginx
