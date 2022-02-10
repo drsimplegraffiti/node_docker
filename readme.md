@@ -6,7 +6,7 @@
 > docker build -t [give the docker image a name] .
 > docker build -t yomiapp .
 
-## List images
+## List images [View local images]
 
 > docker images
 
@@ -46,3 +46,27 @@ MongoDB Connected: godan-shard-00-00.minj6.mongodb.net
 ## Start existing image
 
 > docker start [docker image name or container id]
+
+## Setting ENV in Dockerfile
+
+> ENV PORT=8080
+> ENV NODE_ENV=production or ENV NODE_ENV=production
+
+## Create a volume
+
+> docker volume create [name of volume directory]
+> docker volume create shared-stuff
+
+## List Volumes
+
+> docker volume ls
+
+## Inspect volume
+
+> docker volume inspect [volume name]
+> docker volume inspect shared-stuff
+
+## Remove a volume
+
+> docker volume rm [volume name]
+> docker volume rm shared-stuff
