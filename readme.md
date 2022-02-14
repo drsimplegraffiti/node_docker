@@ -115,3 +115,7 @@ services:
 ## share volumes between containers
 
 > docker run --name [new container name] --volumes-from [container to copy from] -d -p [host port]:[container port] nginx
+
+## install react and redux
+
+> npx create-react-app frontend --template redux
