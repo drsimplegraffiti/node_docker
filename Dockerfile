@@ -1,6 +1,8 @@
 FROM node:17-alpine
+RUN npm install -g nodemon
 WORKDIR /backend
-COPY . .
+COPY package.json .
 RUN npm install
+COPY . .
 EXPOSE 5000
-CMD ["node", "backend/server.js"]
+CMD ["npm", "run", "dev-nodemon"]
