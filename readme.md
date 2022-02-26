@@ -244,3 +244,35 @@ Stop container first: `docker stop mynewapp_c`
 
 To start with volume with our local folder --> Right click to copy path of folder in vscode
 `docker run --name mynewapp_c -p 5000:5000 --rm -v C:\Users\user\Desktop\travery\backend:/backend -v /backend/node_modules nodemonapp:nodemon`
+
+---
+
+## Docker compose file
+
+```javascript
+version: "3.8"
+services:
+  backend:
+    build: ./backend
+    container_name: backend_c
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./backend:/app
+      - ./app/node_modules
+```
+
+- Make sure you are in root directory
+
+> Run: docker-compose up
+
+- Stopping the container
+
+> docker-compose down
+
+- Remove all images created with docker compose
+
+  > docker-compose down --rmi all
+
+- Remove all images created with docker compose with the volumes
+  > docker-compose down --rmi all -v
